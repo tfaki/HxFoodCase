@@ -1,39 +1,37 @@
 package com.hxfood.newsdemo.ui.news
 
-import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.hxfood.newsdemo.R
+import com.hxfood.newsdemo.base.BaseFragment
 import com.hxfood.newsdemo.databinding.FragmentNewsListBinding
-import com.hxfood.newsdemo.utils.Status
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class NewsListFragment : Fragment() {
+class NewsListFragment : BaseFragment() {
 
     private lateinit var binding: FragmentNewsListBinding
     private val viewModel: NewsViewModel by viewModels()
+    private val newsPagingAdapter = NewsPagingAdapter()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentNewsListBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    override fun getLayoutId(): Int = R.layout.fragment_news_list
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun bindScreen() {
+        binding = setBinding()
 
-        viewModel.newsLiveData.observe(viewLifecycleOwner) {
+        binding.newsRv.apply {
+            adapter = newsPagingAdapter
+            layoutManager = LinearLayoutManager(requireContext())
+        }
+
+        newsPagingAdapter.onMovieClick {
 
         }
 
-        viewModel.getNews(1)
+        viewModel.list.observe(viewLifecycleOwner) {
+            newsPagingAdapter.submitData(lifecycle, it)
+        }
 
+        viewModel.setQuery()
     }
-
 }
