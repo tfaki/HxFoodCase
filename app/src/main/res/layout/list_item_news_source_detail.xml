@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.hxfood.newsdemo.data.News" />
+
+        <variable
+            name="news"
+            type="com.hxfood.newsdemo.data.News" />
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/newsIv"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        app:load="@{news.urlToImage}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/newsDetailTitleTv"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="@{`` + news.source.name}"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        tools:text="title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/newsIv"
+        app:layout_constraintTop_toTopOf="@+id/newsIv"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/newsDetailDescTv"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="12dp"
+        android:text="@{`` + news.description}"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:text="descdescdesc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/newsIv"
+        app:layout_constraintTop_toBottomOf="@+id/newsDetailTitleTv"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/addMyListTv"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/add_my_list"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:gravity="center_horizontal"
+        tools:text="Listeme Ekle"
+        app:layout_constraintEnd_toEndOf="@+id/newsIv"
+        app:layout_constraintStart_toStartOf="@+id/newsIv"
+        app:layout_constraintTop_toBottomOf="@+id/newsIv"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

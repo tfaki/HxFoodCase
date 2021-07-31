@@ -1,10 +1,12 @@
 package com.hxfood.newsdemo.ui.news
 
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hxfood.newsdemo.R
 import com.hxfood.newsdemo.base.BaseFragment
 import com.hxfood.newsdemo.databinding.FragmentNewsListBinding
+import com.hxfood.newsdemo.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,7 +27,12 @@ class NewsListFragment : BaseFragment() {
         }
 
         newsPagingAdapter.onMovieClick {
-
+            if (it != "null"){
+                val action = NewsListFragmentDirections.actionNewsFragmentToDetailsFragment(it)
+                findNavController().navigate(action)
+            } else {
+                requireContext().toast("Haber kaynağının detayı bulunmamaktadır.")
+            }
         }
 
         viewModel.list.observe(viewLifecycleOwner) {

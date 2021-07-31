@@ -19,4 +19,16 @@ open class NewsRepository(private val newsInterface: NewsInterface) {
         }
     }
 
+    suspend fun getNewsSourceDetail(pageNumber: Int, sources: String): Result<NewsResponse> {
+        return try {
+            val response = newsInterface.getNewsSourceDetail(pageNumber, sources)
+            if (response.isSuccessful) {
+                Result(Status.SUCCESS, response.body())
+            } else {
+                Result(Status.ERROR, null)
+            }
+        } catch (e: Exception) {
+            Result(Status.ERROR, null)
+        }
+    }
 }

@@ -10,7 +10,19 @@
         android:name="com.hxfood.newsdemo.ui.news.NewsListFragment"
         android:label="fragment_news_list"
         tools:layout="@layout/fragment_news_list" >
+        <action
+            android:id="@+id/action_newsFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.hxfood.newsdemo.ui.detail.NewsSourceDetailFragment"
+        android:label="fragment_news_source_detail"
+        tools:layout="@layout/fragment_news_source_detail" >
+        <argument
+            android:name="newsId"
+            app:argType="string" />
     </fragment>
 
 </navigation>
