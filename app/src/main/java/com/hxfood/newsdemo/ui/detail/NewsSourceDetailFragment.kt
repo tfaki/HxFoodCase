@@ -7,7 +7,6 @@ import android.os.Looper
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hxfood.newsdemo.HxFoodApp
 import com.hxfood.newsdemo.R
 import com.hxfood.newsdemo.base.BaseFragment
 import com.hxfood.newsdemo.databinding.FragmentNewsSourceDetailBinding
