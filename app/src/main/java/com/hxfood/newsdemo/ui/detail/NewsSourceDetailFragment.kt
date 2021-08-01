@@ -80,7 +80,7 @@ class NewsSourceDetailFragment : BaseFragment() {
     private fun countDownTimer() {
         handler.postDelayed(object : Runnable {
             override fun run() {
-                //sendRequest()
+                sendRequest()
                 handler.postDelayed(this, 60000) //now is every 1 minutes
             }
         }, 60000) //Every 60000 ms (1 minutes)
