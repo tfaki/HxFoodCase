@@ -14,7 +14,7 @@
         android:theme="@style/Theme.NewsDemo" >
         <activity
             android:name=".ui.MainActivity"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

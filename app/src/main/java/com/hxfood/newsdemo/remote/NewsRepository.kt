@@ -6,9 +6,9 @@ import com.hxfood.newsdemo.utils.Result
 
 open class NewsRepository(private val newsInterface: NewsInterface) {
 
-    suspend fun getNews(pageNumber: Int): Result<NewsResponse> {
+    suspend fun getNewsSourceList(pageNumber: Int): Result<NewsResponse> {
         return try {
-            val response = newsInterface.getAllNews(pageNumber)
+            val response = newsInterface.getNewsSourceList(pageNumber)
             if (response.isSuccessful) {
                 Result(Status.SUCCESS, response.body())
             } else {

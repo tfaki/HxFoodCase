@@ -26,19 +26,29 @@ class NewsListFragment : BaseFragment() {
             layoutManager = LinearLayoutManager(requireContext())
         }
 
+        arrangeClick()
+        arrangeObserver()
+        sendRequest()
+    }
+
+    private fun arrangeClick() {
         newsPagingAdapter.onMovieClick {
             if (it != "null"){
                 val action = NewsListFragmentDirections.actionNewsFragmentToDetailsFragment(it)
                 findNavController().navigate(action)
             } else {
-                requireContext().toast("Haber kaynağının detayı bulunmamaktadır.")
+                requireContext().toast(getString(R.string.news_source_not_found))
             }
         }
+    }
 
+    private fun arrangeObserver() {
         viewModel.list.observe(viewLifecycleOwner) {
             newsPagingAdapter.submitData(lifecycle, it)
         }
+    }
 
+    private fun sendRequest() {
         viewModel.setQuery()
     }
 }

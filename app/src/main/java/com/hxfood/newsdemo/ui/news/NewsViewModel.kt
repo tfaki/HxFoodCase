@@ -21,7 +21,7 @@ class NewsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val query = MutableLiveData("")
-    val list = query.switchMap { query ->
+    val list = query.switchMap {
         Pager(PagingConfig(pageSize = 50)) {
             NewsPaging(repository)
         }.liveData.cachedIn(viewModelScope)
@@ -34,6 +34,6 @@ class NewsViewModel @Inject constructor(
     val newsLiveData = MutableLiveData<Result<NewsResponse>>()
 
     fun getNews(pageNumber: Int) = viewModelScope.launch {
-        newsLiveData.postValue(repository.getNews(pageNumber))
+        newsLiveData.postValue(repository.getNewsSourceList(pageNumber))
     }
 }

@@ -17,7 +17,7 @@ class NewsPaging(private val newsRepository: NewsRepository): PagingSource<Int, 
         val page = params.key ?: 1
 
         return try {
-            val response = newsRepository.getNews(page)
+            val response = newsRepository.getNewsSourceList(page)
             LoadResult.Page(
                 data = response.data?.articles ?: emptyList(),
                 prevKey = if (page == 1) null else page - 1,

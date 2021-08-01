@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">News Demo</string>
     <string name="add_my_list">Listeme Ekle</string>
+    <string name="news_source_not_found">Haber kaynağının detayı bulunmamaktadır.</string>
+    <string name="remove_from_my_list">Listemden çıkar</string>
 </resources>
