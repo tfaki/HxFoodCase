@@ -32,7 +32,7 @@ class NewsListFragment : BaseFragment() {
     }
 
     private fun arrangeClick() {
-        newsPagingAdapter.onMovieClick {
+        newsPagingAdapter.onNewsClick {
             if (it != "null"){
                 val action = NewsListFragmentDirections.actionNewsFragmentToDetailsFragment(it)
                 findNavController().navigate(action)

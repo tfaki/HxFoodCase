@@ -35,7 +35,7 @@ class NewsPagingAdapter : PagingDataAdapter<News, NewsPagingAdapter.NewsViewHold
     inner class NewsViewHolder(val viewDataBinding: ListItemNewsBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root)
 
-    fun onMovieClick(listener: (String) -> Unit) {
+    fun onNewsClick(listener: (String) -> Unit) {
         onClick = listener
     }
 
