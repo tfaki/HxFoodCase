@@ -1,17 +1,16 @@
 # HxFoodCase
 
+* This project is written in Kotlin. 
+* Used Mvvm for project architecture
+
 Endpoint: 
 
 * BASE URL = https://newsapi.org/
 * News Source List = v2/top-headlines?page=1&country=us&apiKey=xxxxxxxxxxxxxx
 * News Source Detail List = v2/top-headlines?page=1&source=cnn&apiKey=xxxxxxxxxxxx
 
-Used libraries and tools : 
 
-* This project is written in Kotlin. 
-* Used Mvvm for project architecture
-
-* Some libraries and tools used in this project :
+ Some libraries and tools used in this project :
 
 
 - Navigation for single activity multiple fragments
